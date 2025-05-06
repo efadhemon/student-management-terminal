@@ -1,7 +1,6 @@
 package utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 public class TablePrinter {
 
@@ -63,15 +62,4 @@ public class TablePrinter {
         }
         System.out.println("|");
     }
-
-//    // Example usage
-//    public static void main(String[] args) {
-//        TablePrinter tp = new TablePrinter(Arrays.asList("ID", "Name"));
-//
-//        tp.addRow(Arrays.asList("1", "Alice", "alice@example.com")); // Extra column
-//        tp.addRow(Arrays.asList("2")); // Missing column
-//        tp.addRow(Arrays.asList("3", "Charlie", "charlie@example.com", "Extra"));
-//
-//        tp.print();
-//    }
 }
