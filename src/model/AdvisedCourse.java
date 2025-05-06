@@ -1,10 +1,10 @@
 package model;
 
-public class CourseAdvised {
+public class AdvisedCourse {
     private int studentId;
     private String courseCode;
 
-    public CourseAdvised(int studentId, String courseCode) {
+    public AdvisedCourse(int studentId, String courseCode) {
         this.studentId = studentId;
         this.courseCode = courseCode;
     }
@@ -26,6 +26,6 @@ public class CourseAdvised {
     }
 
     public String toDBString() {
-        return studentId + ","+studentId+ "\n";
+        return studentId + ","+courseCode+ "\n";
     }
 }

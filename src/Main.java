@@ -1,3 +1,4 @@
+import manager.AdvisedCourseManager;
 import manager.AuthManager;
 import manager.StudentManager;
 
@@ -31,9 +32,12 @@ public class Main {
        do {
            System.out.println();
            System.out.println("Welcome to the Student Manager!");
-           System.out.println("Press 1 to show all students");
+           System.out.println("Press 1 to see all students");
            System.out.println("Press 2 to add new student");
            System.out.println("Press 3 to search student by id");
+           System.out.println("Press 4 to see all advised courses");
+           System.out.println("Press 5 to add new advised course");
+           System.out.println("Press 6 to search advised courses with student id");
            System.out.println("Press 0 to exit");
            System.out.println();
 
@@ -54,6 +58,7 @@ public class Main {
 
 
            StudentManager studentManager = new StudentManager();
+           AdvisedCourseManager advisedCourseManager = new AdvisedCourseManager();
 
            switch(key) {
                case 1:
@@ -64,6 +69,15 @@ public class Main {
                    break;
                case 3:
                    studentManager.searchStudentByIDAndPrint();
+                   break;
+               case 4:
+                   advisedCourseManager.showAllAdvised();
+                   break;
+               case 5:
+                   advisedCourseManager.addAdvised();
+                   break;
+               case 6:
+                   advisedCourseManager.searchAdvisedByStudentIdAndPrint();
                    break;
                case 0:
                    System.out.println("Goodbye!");

@@ -33,7 +33,7 @@ public class StudentManager {
         return null;
     }
 
-    private Student searchStudentByID(int id) {
+    public Student searchStudentByID(int id) {
         try {
             FileReader fileReader = new FileReader(STUDENT_DB_PATH);
             BufferedReader reader = new BufferedReader(fileReader);
@@ -73,9 +73,9 @@ public class StudentManager {
                 id = scanner.nextInt();
                 scanner.nextLine(); // this is because of auto skip next scan for integer issue
 
-                Student isExist =  searchStudentByID(id);
+                Student student =  searchStudentByID(id);
 
-                if (isExist != null) {
+                if (student != null) {
                     id = -1;
                     System.out.println("Student already exists!");
                     System.out.print("Enter another id: ");
@@ -161,6 +161,7 @@ public class StudentManager {
                 Student student = extractStudentFromLine(line);
 
                 List<String> dataItems = new ArrayList<String>();
+
                 dataItems.add(String.valueOf(student.getId()));
                 dataItems.add(student.getName());
                 dataItems.add(student.getProgram());
@@ -209,7 +210,9 @@ public class StudentManager {
 
         if (student != null) {
             TablePrinter tp = new TablePrinter(Arrays.asList("ID", "Name", "Program", "Batch", "CGPA"));
+
             List<String> dataItems = new ArrayList<String>();
+
             dataItems.add(String.valueOf(student.getId()));
             dataItems.add(student.getName());
             dataItems.add(student.getProgram());
