@@ -17,12 +17,12 @@ public class StudentManager {
         String[] data = line.split(",");
 
         try {
-            // For empty save error handling I did this extra condition to assign value in variable
-            int id =  (data.length > 0 && data[0] != null) ? Integer.parseInt(data[0]) : -1;
-            String name =  (data.length > 1 && data[1] != null) ? data[1] : "";
-            String program = (data.length > 2 && data[2] != null) ? data[2] : "";
-            int batch = (data.length > 3 && data[3] != null) ? Integer.parseInt(data[3]) : -1;
-            float cgpa = (data.length > 4 && data[4] != null) ? Float.parseFloat(data[4]) : -1;
+            // For empty save error handling did this extra condition to assign value in variable
+            int id =  data.length > 0 ? Integer.parseInt(data[0]) : -1;
+            String name =  data.length > 1  ? data[1] : "";
+            String program = data.length > 2  ? data[2] : "";
+            int batch = data.length > 3  ? Integer.parseInt(data[3]) : -1;
+            float cgpa = data.length > 4  ? Float.parseFloat(data[4]) : -1;
 
             return new Student(id, name, program, batch, cgpa);
 
@@ -71,7 +71,7 @@ public class StudentManager {
         while (id < 0) {
             try {
                 id = scanner.nextInt();
-                scanner.nextLine(); // this is because of auto skip next scan for integer issue
+                scanner.nextLine(); // this is because of auto skip next scan issue
 
                 Student student =  searchStudentByID(id);
 
@@ -83,7 +83,7 @@ public class StudentManager {
                 }
 
             } catch (Exception e) {
-                scanner.nextLine(); // this is because of auto skip next scan for integer issue
+                scanner.nextLine(); // this is because of auto skip next scan issue
                 System.out.println("The id will be an integer number!");
                 System.out.print("Please correctly enter student id: ");
             }
@@ -102,9 +102,9 @@ public class StudentManager {
         while (batch < 0) {
             try {
                 batch = scanner.nextInt();
-                scanner.nextLine(); // this is because of auto skip next scan for integer issue
+                scanner.nextLine(); // this is because of auto skip next scan issue
             } catch (Exception e) {
-                scanner.nextLine(); // this is because of auto skip next scan for integer issue
+                scanner.nextLine(); // this is because of auto skip next scan issue
                 System.out.println("Batch will be an integer  number!");
                 System.out.print("Please correctly enter student batch: ");
             }
@@ -116,9 +116,9 @@ public class StudentManager {
         while (cgpa < 0) {
             try {
                 cgpa = scanner.nextFloat();
-                scanner.nextLine(); // this is because of auto skip next scan for flot issue
+                scanner.nextLine(); // this is because of auto skip next scan issue
             } catch (Exception e) {
-                scanner.nextLine(); // this is because of auto skip next scan for flot issue
+                scanner.nextLine(); // this is because of auto skip next scan issue
                 System.out.println("Cgpa will be an flot  number!");
                 System.out.print("Please correctly enter student cgpa: ");
             }
@@ -171,10 +171,11 @@ public class StudentManager {
                 tp.addRow(dataItems);
             }
 
-            tp.print();
-
             fileReader.close();
             reader.close();
+
+            System.out.println("Note: '-1' is used to indicate an empty value in a numeric column.");
+            tp.print();
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
@@ -197,9 +198,9 @@ public class StudentManager {
         while (id < 0) {
             try {
                 id = scanner.nextInt();
-                scanner.nextLine(); // this is because of auto skip next scan for integer issue
+                scanner.nextLine(); // this is because of auto skip next scan issue
             } catch (Exception e) {
-                scanner.nextLine(); // this is because of auto skip next scan for integer issue
+                scanner.nextLine(); // this is because of auto skip next scan issue
                 System.out.println("The id will be an integer number!");
                 System.out.print("Please correctly enter student id: ");
             }
@@ -220,6 +221,8 @@ public class StudentManager {
             dataItems.add(String.valueOf(student.getCgpa()));
 
             tp.addRow(dataItems);
+
+            System.out.println("Note: '-1' is used to indicate an empty value in a numeric column.");
             tp.print();
         }else {
             System.out.println("Student with ID " + id + " not found.");

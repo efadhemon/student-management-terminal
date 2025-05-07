@@ -10,6 +10,12 @@ public class AuthManager {
 
     public boolean login(String username, String password) {
         boolean isAuthenticated = false;
+
+        // This is because of empty value
+        if(username == null || password == null) {
+            return false;
+        }
+
         try {
             FileReader fileReader = new FileReader(ADMIN_DB_PATH);
             BufferedReader reader = new BufferedReader(fileReader);
@@ -21,8 +27,8 @@ public class AuthManager {
 
 
                 // For empty save error handling I did this extra condition to assign value in variable
-                String _username =  (data.length > 0 && data[0] != null) ? data[0] : "";
-                String _password =  (data.length > 1 && data[1] != null) ? data[1] : "";
+                String _username =  data.length > 0  ? data[0] : "";
+                String _password =  data.length > 1  ? data[1] : "";
 
                 if (username.equals(_username) && password.equals(_password)) {
                     isAuthenticated = true;

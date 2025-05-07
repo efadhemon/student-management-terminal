@@ -18,25 +18,18 @@ public class TablePrinter {
         }
     }
 
+
     public void addRow(List<String> row) {
-        // Adjust column widths and extend if needed
-        for (int i = 0; i < row.size(); i++) {
-            String cell = row.get(i);
-            if (i >= columnWidths.size()) {
-                columnWidths.add(cell.length());
-            } else {
-                columnWidths.set(i, Math.max(columnWidths.get(i), cell.length()));
-            }
+        List<String> trimmedRow = row.size() > headers.size() ? row.subList(0, headers.size()) : row;
+
+        for (int i = 0; i < trimmedRow.size(); i++) {
+            String cell = trimmedRow.get(i);
+            columnWidths.set(i, Math.max(columnWidths.get(i), cell.length()));
         }
-        rows.add(row);
+        rows.add(trimmedRow);
     }
 
     public void print() {
-        // Adjust header width if rows had more columns
-        while (headers.size() < columnWidths.size()) {
-            headers.add("Column" + (headers.size() + 1));
-        }
-
         printSeparator();
         printRow(headers);
         printSeparator();
@@ -56,8 +49,8 @@ public class TablePrinter {
     }
 
     private void printRow(List<String> row) {
-        for (int i = 0; i < columnWidths.size(); i++) {
-            String cell = (i < row.size()) ? row.get(i) : "";
+        for (int i = 0; i < headers.size(); i++) {
+            String cell = (i < row.size() && row.get(i) != null) ? row.get(i) : "";
             System.out.printf("| %-" + columnWidths.get(i) + "s ", cell);
         }
         System.out.println("|");

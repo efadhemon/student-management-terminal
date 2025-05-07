@@ -14,7 +14,7 @@ public class Main {
 
         System.out.println("Welcome! Please login first!");
 
-        boolean isAuthenticated = false;
+        boolean isAuthenticated = true;
 
         while (!isAuthenticated){
            System.out.print("Enter your username: ");

@@ -20,9 +20,9 @@ public class AdvisedCourseManager {
         String[] data = line.split(",");
 
         try {
-            // For empty save error handling I did this extra condition to assign value in variable
-            int studentId =  (data.length > 0 && data[0] != null) ? Integer.parseInt(data[0]) : -1;
-            String courseCode =  (data.length > 1 && data[1] != null) ? data[1] : "";
+            // For empty save error handling  did this extra condition to assign value in variable
+            int studentId =  data.length > 0  ? Integer.parseInt(data[0]) : -1;
+            String courseCode =  data.length > 1  ? data[1] : "";
 
 
             return new AdvisedCourse(studentId, courseCode);
@@ -76,7 +76,7 @@ public class AdvisedCourseManager {
         while (studentId < 0) {
             try {
                 studentId = scanner.nextInt();
-                scanner.nextLine(); // this is because of auto skip next scan for integer issue
+                scanner.nextLine(); // this is because of auto skip next scan issue
 
                 Student student =  this.studentManager.searchStudentByID(studentId);
 
@@ -88,7 +88,7 @@ public class AdvisedCourseManager {
                 }
 
             } catch (Exception e) {
-                scanner.nextLine(); // this is because of auto skip next scan for integer issue
+                scanner.nextLine(); // this is because of auto skip next scan issue
                 System.out.println("The student id will be an integer number!");
                 System.out.print("Please correctly enter student id: ");
             }
@@ -144,10 +144,12 @@ public class AdvisedCourseManager {
                 tp.addRow(dataItems);
             }
 
-            tp.print();
-
             fileReader.close();
             reader.close();
+
+            System.out.println("Note: '-1' is used to indicate an empty value in a numeric column.");
+            tp.print();
+
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
@@ -170,9 +172,9 @@ public class AdvisedCourseManager {
         while (studentId < 0) {
             try {
                 studentId = scanner.nextInt();
-                scanner.nextLine(); // this is because of auto skip next scan for integer issue
+                scanner.nextLine(); // this is because of auto skip next scan issue
             } catch (Exception e) {
-                scanner.nextLine(); // this is because of auto skip next scan for integer issue
+                scanner.nextLine(); // this is because of auto skip next scan issue
                 System.out.println("The id will be an integer number!");
                 System.out.print("Please correctly enter student id: ");
             }
@@ -197,7 +199,10 @@ public class AdvisedCourseManager {
 
                 tp.addRow(dataItems);
             }
+
+            System.out.println("Note: '-1' is used to indicate an empty value in a numeric column.");
             tp.print();
+
         }else {
             System.out.println("Advised with Student ID " + studentId + " not found.");
 
