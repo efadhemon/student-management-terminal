@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 
 public class StudentManager {
-    private final String STUDENT_DB_PATH = "src/database/student.txt";
+    private final String STUDENT_DB_PATH = "src/database/students.txt";
 
     private Student extractStudentFromLine(String line) {
         String[] data = line.split(",");

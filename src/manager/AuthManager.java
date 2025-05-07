@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class AuthManager {
-    private final  String ADMIN_DB_PATH = "src/database/admin.txt";
+    private final  String ADMIN_DB_PATH = "src/database/users.txt";
 
     public boolean login(String username, String password) {
         boolean isAuthenticated = false;

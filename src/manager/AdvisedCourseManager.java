@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class AdvisedCourseManager {
 
-    private final String ADVISED_DB_PATH = "src/database/advised-course.txt";
+    private final String ADVISED_DB_PATH = "src/database/advised-courses.txt";
 
     private final StudentManager studentManager = new StudentManager();
 
