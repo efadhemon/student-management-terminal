@@ -21,7 +21,7 @@ public class AdvisedCourseManager {
 
         try {
             // For empty save error handling I did this extra condition to assign value in variable
-            int studentId =  (data.length > 0 && data[0] != null) ? Integer.parseInt(data[0]) : 0;
+            int studentId =  (data.length > 0 && data[0] != null) ? Integer.parseInt(data[0]) : -1;
             String courseCode =  (data.length > 1 && data[1] != null) ? data[1] : "";
 
 

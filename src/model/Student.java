@@ -76,7 +76,7 @@ public class Student {
     }
 
     public void printInfo (){
-        String info = id + ","+name+ ","+program+","+batch+","+cgpa+","+password;
+        String info = id + ","+name+ ","+program+","+batch+","+cgpa;
 
         System.out.println(info);
     }

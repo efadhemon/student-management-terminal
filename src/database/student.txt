@@ -1,9 +1,4 @@
-3243535,emon
-32435436,dsfsfg
-2234234,
-3244,dsfdsf
-322,dsf
-32423,dasfsdgf,cse,16,3.7,
-3242354,fsdgfs,EEE,3434,3.7,dsf
-5543,fsdf,fsd,3,3.5,fsfsd
-222,sdf,gg,34,4.5,dgsg
+322,Emon,CSE,16,3.7,fgfdg
+324,fsdgfs,EEE,3434,3.7,dsf
+554,fsdf,CSE,3,3.5,fsfsd
+222,sdf,EEE,34,4.5,dgsg

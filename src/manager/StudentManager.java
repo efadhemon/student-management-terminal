@@ -18,11 +18,11 @@ public class StudentManager {
 
         try {
             // For empty save error handling I did this extra condition to assign value in variable
-            int id =  (data.length > 0 && data[0] != null) ? Integer.parseInt(data[0]) : 0;
+            int id =  (data.length > 0 && data[0] != null) ? Integer.parseInt(data[0]) : -1;
             String name =  (data.length > 1 && data[1] != null) ? data[1] : "";
             String program = (data.length > 2 && data[2] != null) ? data[2] : "";
-            int batch = (data.length > 3 && data[3] != null) ? Integer.parseInt(data[3]) : 0;
-            float cgpa = (data.length > 4 && data[4] != null) ? Float.parseFloat(data[4]) : 0;
+            int batch = (data.length > 3 && data[3] != null) ? Integer.parseInt(data[3]) : -1;
+            float cgpa = (data.length > 4 && data[4] != null) ? Float.parseFloat(data[4]) : -1;
 
             return new Student(id, name, program, batch, cgpa);
 
